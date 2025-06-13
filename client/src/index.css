@@ -52,7 +52,7 @@ html {
   --max-width: 1120px;
   --fluid-width: 90vw;
 
-  --nav-height: 6rem;
+  --nav-height: 4rem;
   --border-radius: 0.25rem;
 
   --transition: 0.3s ease-in-out all;
@@ -143,4 +143,16 @@ ul {
   animation: spinner 1s linear infinite;
 }
 
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 /* ============= PROJECT CSS =============== */
+
+.container {
+  width: var(--fluid-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
