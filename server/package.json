@@ -1,0 +1,26 @@
+{
+  "name": "nusho_server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Valentyn Zozulia",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"vite-node src/server.ts\""
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-node": "^3.2.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "es5"
+  }
+}
