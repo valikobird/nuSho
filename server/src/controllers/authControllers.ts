@@ -27,6 +27,11 @@ const login = async (req: Request, res: Response): Promise<void> => {
   res.status(StatusCodes.OK).json({ msg: 'login successful' });
 };
 
+const logout = async (req: Request, res: Response): Promise<void> => {
+  setHttpCookie(res, { name: 'token', value: null, lifeSpan: 0 });
+  res.status(StatusCodes.OK).json({ msg: 'logout successful' });
+};
+
 const getUser = async (email: string): Promise<UserDocument> => {
   const user: UserDocument | null = await UserModel.findOne({ email });
   if (!user) {
@@ -46,4 +51,4 @@ const checkPassword = async (
   return isPasswordCorrect;
 };
 
-export { register, login };
+export { login, logout, register };
