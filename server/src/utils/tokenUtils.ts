@@ -7,3 +7,7 @@ export const createJwt = (payload: UserDetails): string => {
     expiresIn: env.JWT_EXPIRES_IN as jwt.SignOptions['expiresIn'],
   });
 };
+
+export const verifyJwt = (token: string): UserDetails => {
+  return jwt.verify(token, env.JWT_SECRET) as UserDetails;
+};

@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { CookieDetails } from '../interfaces';
+import { CookieDetails } from '../types/interfaces';
 import { env } from '../config/env';
 
 export const setHttpCookie = (res: Response, details: CookieDetails): void => {

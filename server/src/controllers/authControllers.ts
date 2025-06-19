@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import UserModel from '../models/UserModel';
 import { StatusCodes } from 'http-status-codes';
 import { comparePassword, hashPassword } from '../utils/passwordUtils';
-import { UserDocument } from '../interfaces';
+import { UserDocument } from '../types/interfaces';
 import { UnauthenticatedError } from '../errors/customErrors';
 import { createJwt } from '../utils/tokenUtils';
 import { setHttpCookie } from '../utils/httpUtils';

@@ -1,4 +1,4 @@
-import { CustomErrorWithStatus } from './types';
+import { CustomErrorWithStatus } from '../types/common';
 import { StatusCodes } from 'http-status-codes';
 
 class CustomError extends Error implements CustomErrorWithStatus {

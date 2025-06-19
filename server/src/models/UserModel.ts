@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 import { User } from '@shared/interfaces';
 import { USER_ROLES } from '@shared/constants';
-import { UserWithoutPassword } from '../types';
+import { UserWithoutPassword } from '../types/common';
 
 const UserSchema = new Schema<User>(
   {

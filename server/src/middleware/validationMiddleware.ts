@@ -8,7 +8,7 @@ import {
 } from 'express-validator';
 import { BadRequestError } from '../errors/customErrors';
 import UserModel from '../models/UserModel';
-import { UserDocument } from '../interfaces';
+import { UserDocument } from '../types/interfaces';
 
 const withValidationErrors = (validateValues: ValidationChain[]) => {
   return [
