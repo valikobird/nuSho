@@ -1,5 +1,5 @@
 import Wrapper from './Wrapper';
-import { Logo } from '../../components';
+import { Logo, ThemeToggle } from '../../components';
 import { Link } from 'react-router-dom';
 import main from '../../assets/images/main.svg';
 
@@ -8,6 +8,7 @@ const Landing = () => {
     <Wrapper>
       <nav>
         <Logo />
+        <ThemeToggle />
       </nav>
       <div className="container page">
         <div className="info">

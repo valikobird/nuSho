@@ -8,6 +8,7 @@ const Wrapper = styled.section`
     height: var(--nav-height);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 0;
 
     .logo {
