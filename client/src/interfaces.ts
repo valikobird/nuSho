@@ -10,3 +10,8 @@ export interface ActionProps {
 export interface GeneralApiResponse {
   msg: string;
 }
+
+export interface LoginData {
+  email: string;
+  password: string;
+}

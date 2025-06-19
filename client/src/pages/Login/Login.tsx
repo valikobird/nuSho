@@ -15,7 +15,7 @@ const Login = () => {
         <Form method="post" className="form">
           <Logo />
           <h4>Login</h4>
-          <FormRow type="email" name="email" defaultValue="text@nusho.tut" />
+          <FormRow type="email" name="email" defaultValue="test@nusho.tut" />
           <FormRow type="password" name="password" defaultValue="secret123" />
           <button
             type="submit"

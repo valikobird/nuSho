@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 // actions
 import { registerAction } from './pages/Register';
+import { loginAction } from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Landing /> },
       { path: 'register', element: <Register />, action: registerAction },
-      { path: 'login', element: <Login /> },
+      { path: 'login', element: <Login />, action: loginAction },
     ],
   },
 ]);
