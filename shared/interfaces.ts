@@ -7,7 +7,7 @@ export interface User {
   role: UserRole;
 }
 
-export interface userDetails {
+export interface UserDetails {
   userId: string;
   role: UserRole;
 }

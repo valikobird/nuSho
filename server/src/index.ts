@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { StatusCodes } from 'http-status-codes';
 import connectDb from './db/connect';
+import { BASE_PATH_API_V1 } from '@shared/constants';
 
 // routers
 import authRouter from './routes/authRouter';
@@ -27,7 +28,7 @@ app.get('/health', (req: Request, res: Response): void => {
     .json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-app.use('/api/v1/auth', authRouter);
+app.use(`${BASE_PATH_API_V1}/auth`, authRouter);
 
 app.all(/.*/, (req: Request, res: Response): void => {
   res.status(StatusCodes.NOT_FOUND).json({ msg: 'route not found' });

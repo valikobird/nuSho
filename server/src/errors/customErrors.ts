@@ -14,3 +14,9 @@ export class BadRequestError extends CustomError {
     super(message, StatusCodes.BAD_REQUEST);
   }
 }
+
+export class UnauthenticatedError extends CustomError {
+  constructor(message: string) {
+    super(message, StatusCodes.UNAUTHORIZED);
+  }
+}
