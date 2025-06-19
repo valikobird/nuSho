@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Error, HomeLayout, Landing, Register } from './pages';
+import { Error, HomeLayout, Landing, Login, Register } from './pages';
 import { ToastContainer } from 'react-toastify';
 
 // actions
@@ -12,11 +12,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Landing /> },
-      {
-        path: 'register',
-        element: <Register />,
-        action: registerAction,
-      },
+      { path: 'register', element: <Register />, action: registerAction },
+      { path: 'login', element: <Login /> },
     ],
   },
 ]);
