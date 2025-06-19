@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { FormRow, Logo, ThemeToggle } from '../../components';
 import Wrapper from './Wrapper';
 
@@ -9,7 +9,7 @@ const Register = () => {
         <ThemeToggle />
       </nav>
       <div className="form-page">
-        <form className="form">
+        <Form method="post" className="form">
           <Logo />
           <h4>Register</h4>
           <FormRow
@@ -29,7 +29,7 @@ const Register = () => {
               login
             </Link>
           </p>
-        </form>
+        </Form>
       </div>
     </Wrapper>
   );

@@ -1,5 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Error, HomeLayout, Landing, Register } from './pages';
+import { ToastContainer } from 'react-toastify';
+
+// actions
+import { registerAction } from './pages/Register';
 
 const router = createBrowserRouter([
   {
@@ -11,13 +15,19 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register />,
+        action: registerAction,
       },
     ],
   },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer position="top-right" />
+    </>
+  );
 };
 
 export default App;
