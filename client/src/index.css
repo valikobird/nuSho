@@ -172,6 +172,16 @@ ul {
   margin: 0 auto;
 }
 
+.nav {
+  width: var(--fluid-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
 .btn {
   cursor: pointer;
   color: var(--button-text-color);
@@ -193,6 +203,13 @@ ul {
 
 .btn-block {
   width: 100%;
+}
+
+.form-page {
+  min-height: calc(100vh - var(--nav-height));
+  display: grid;
+  align-items: center;
+  margin-top: -3rem;
 }
 
 .form {

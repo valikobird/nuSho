@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   min-height: 100vh;
-  display: grid;
-  align-items: center;
+
+  nav {
+    justify-content: flex-end;
+  }
 
   .logo {
     display: block;

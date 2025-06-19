@@ -6,7 +6,7 @@ import main from '../../assets/images/main.svg';
 const Landing = () => {
   return (
     <Wrapper>
-      <nav>
+      <nav className="nav">
         <Logo />
         <ThemeToggle />
       </nav>
