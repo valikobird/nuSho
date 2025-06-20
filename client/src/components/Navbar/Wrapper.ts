@@ -34,6 +34,11 @@ const Wrapper = styled.nav`
     align-items: center;
     height: 3rem;
   }
+
+  .btn-container {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export default Wrapper;

@@ -1,9 +1,11 @@
 import Wrapper from './Wrapper';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import { Navbar } from '../../components';
 import { useState } from 'react';
+import type { UserDocumentWithoutPassword } from '@shared/types';
 
 const DashboardLayout = () => {
+  const user = useLoaderData<UserDocumentWithoutPassword>();
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   const toggleSidebar = (): void => {
@@ -14,7 +16,7 @@ const DashboardLayout = () => {
     <Wrapper>
       <main className="dashboard">
         <div>
-          <Navbar toggleSidebar={toggleSidebar} />
+          <Navbar toggleSidebar={toggleSidebar} userName={user?.name || ''} />
           <div className="dashboard-page">
             <Outlet />
           </div>

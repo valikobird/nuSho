@@ -1,16 +1,28 @@
 import { BASE_PATH_API_V1 } from '@shared/constants';
 import type { User } from '@shared/interfaces';
-import type { GeneralApiResponse, LoginData } from '../interfaces.ts';
+import type { GeneralApiResponse, LoginData } from '../interfaces';
+import type { UserDocumentWithoutPassword } from '@shared/types';
 
 const registerUser = async (data: User): Promise<GeneralApiResponse> => {
-  return await postApi('/auth/register', data);
+  return await apiPost('/auth/register', data);
 };
 
 const loginUser = async (data: LoginData): Promise<GeneralApiResponse> => {
-  return await postApi('/auth/login', data);
+  return await apiPost('/auth/login', data);
 };
 
-async function postApi(
+const logoutUser = async (): Promise<GeneralApiResponse> => {
+  const response = await apiGet('/auth/logout');
+  return response as GeneralApiResponse;
+};
+
+const getCurrentUser = async (): Promise<
+  UserDocumentWithoutPassword | GeneralApiResponse
+> => {
+  return await apiGet('/users/current-user');
+};
+
+async function apiPost(
   path: string,
   data: User | LoginData,
   apiVersion: string = 'V1'
@@ -30,6 +42,22 @@ async function postApi(
   };
 }
 
+async function apiGet(
+  path: string,
+  apiVersion: string = 'V1'
+): Promise<GeneralApiResponse | UserDocumentWithoutPassword> {
+  if (apiVersion === 'V1') {
+    return await fetchApiV1(path, {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+    });
+  }
+
+  return {
+    msg: `API version ${apiVersion} is not supported`,
+  };
+}
+
 async function fetchApiV1<T>(path: string, options?: RequestInit): Promise<T> {
   return fetchJson<T>(`${BASE_PATH_API_V1}${path}`, options);
 }
@@ -40,7 +68,7 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
   let errorMessage: string;
   try {
     if (response.ok) {
-      return response.json();
+      return await response.json();
     }
 
     const errorBody = await response.json();
@@ -53,4 +81,4 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
   throw new Error(errorMessage);
 }
 
-export { loginUser, registerUser };
+export { getCurrentUser, loginUser, logoutUser, registerUser };

@@ -13,6 +13,9 @@ import { ToastContainer } from 'react-toastify';
 import { registerAction } from './pages/Register';
 import { loginAction } from './pages/Login';
 
+// loaders
+import { dashboardLayoutLoader } from './pages/DashboardLayout';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
       { index: true, element: <Landing /> },
       { path: 'register', element: <Register />, action: registerAction },
       { path: 'login', element: <Login />, action: loginAction },
-      { path: 'dashboard', element: <DashboardLayout /> },
+      {
+        path: 'dashboard',
+        element: <DashboardLayout />,
+        loader: dashboardLayoutLoader,
+      },
     ],
   },
 ]);
@@ -31,7 +38,7 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
-      <ToastContainer position="top-right" />
+      <ToastContainer position="bottom-right" />
     </>
   );
 };
