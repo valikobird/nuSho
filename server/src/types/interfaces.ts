@@ -1,9 +1,9 @@
 import { User } from '@shared/interfaces';
 import { Document } from 'mongoose';
-import { UserWithoutPassword } from './common';
+import { UserDocumentWithoutPassword } from '@shared/types';
 
 export interface UserDocument extends User, Document {
-  json(): UserWithoutPassword;
+  json(): UserDocumentWithoutPassword;
 }
 
 export interface CookieDetails {

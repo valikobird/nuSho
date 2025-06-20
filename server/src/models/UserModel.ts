@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 import { User } from '@shared/interfaces';
 import { USER_ROLES } from '@shared/constants';
-import { UserWithoutPassword } from '../types/common';
+import { UserDocumentWithoutPassword } from '@shared/types';
 
 const UserSchema = new Schema<User>(
   {
@@ -17,7 +17,7 @@ const UserSchema = new Schema<User>(
   { timestamps: true }
 );
 
-UserSchema.methods.json = function (): UserWithoutPassword {
+UserSchema.methods.json = function (): UserDocumentWithoutPassword {
   let obj = this.toObject();
   delete obj.password;
   return obj;
