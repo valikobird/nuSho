@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       { path: 'register', element: <Register />, action: registerAction },
       { path: 'login', element: <Login />, action: loginAction },
       {
-        path: 'dashboard',
+        path: 'userspace',
         element: <UserspaceLayout />,
         loader: userspaceLayoutLoader,
         children: [{}],

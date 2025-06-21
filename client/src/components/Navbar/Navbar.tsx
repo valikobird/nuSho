@@ -18,7 +18,7 @@ const Navbar = ({ toggleSidebar, userName }: NavbarProps) => {
         </button>
         <div>
           <Logo />
-          <h4 className="logo-text">dashboard</h4>
+          <h4 className="logo-text">userspace</h4>
         </div>
         <div className="btn-container">
           <ThemeToggle />

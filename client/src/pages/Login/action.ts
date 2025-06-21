@@ -13,7 +13,7 @@ const action = async ({ request }: ActionProps) => {
       password: data.password.toString(),
     });
     toast.success(response.msg);
-    return redirect('/dashboard');
+    return redirect('/userspace');
   } catch (err) {
     toast.error((err as Error).message);
     return err;
