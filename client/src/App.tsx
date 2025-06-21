@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
-  DashboardLayout,
+  UserspaceLayout,
   Error,
   HomeLayout,
   Landing,
@@ -14,7 +14,7 @@ import { registerAction } from './pages/Register';
 import { loginAction } from './pages/Login';
 
 // loaders
-import { dashboardLayoutLoader } from './pages/DashboardLayout';
+import { userspaceLayoutLoader } from './pages/UserspaceLayout';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +27,9 @@ const router = createBrowserRouter([
       { path: 'login', element: <Login />, action: loginAction },
       {
         path: 'dashboard',
-        element: <DashboardLayout />,
-        loader: dashboardLayoutLoader,
+        element: <UserspaceLayout />,
+        loader: userspaceLayoutLoader,
+        children: [{}],
       },
     ],
   },

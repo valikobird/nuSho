@@ -4,7 +4,7 @@ import { Navbar, Sidebar, SidebarPopup } from '../../components';
 import { useState } from 'react';
 import type { UserDocumentWithoutPassword } from '@shared/types';
 
-const DashboardLayout = () => {
+const UserspaceLayout = () => {
   const user = useLoaderData<UserDocumentWithoutPassword>();
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
@@ -14,12 +14,12 @@ const DashboardLayout = () => {
 
   return (
     <Wrapper>
-      <main className="dashboard">
+      <main className="userspace">
         <SidebarPopup showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
         <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
         <div>
           <Navbar toggleSidebar={toggleSidebar} userName={user?.name || ''} />
-          <div className="dashboard-page">
+          <div className="userspace-page">
             <Outlet />
           </div>
         </div>
@@ -28,4 +28,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default DashboardLayout;
+export default UserspaceLayout;
