@@ -1,9 +1,15 @@
-import express from 'express';
-import { createAccount } from '../controllers/accountController';
+import { Router } from 'express';
+import {
+  createAccount,
+  getEnabledAccounts,
+} from '../controllers/accountController';
 import { validateCreateAccountInput } from '../middleware/validationMiddleware';
 
-const accountRouter = express.Router();
+const router = Router();
 
-accountRouter.post('/', validateCreateAccountInput, createAccount);
+router
+  .route('/')
+  .get(getEnabledAccounts)
+  .post(validateCreateAccountInput, createAccount);
 
-export default accountRouter;
+export default router;

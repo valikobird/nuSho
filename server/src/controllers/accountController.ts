@@ -14,4 +14,16 @@ const createAccount = async (req: Request, res: Response): Promise<void> => {
   res.status(StatusCodes.CREATED).json({ msg: 'account created successfully' });
 };
 
-export { createAccount };
+const getEnabledAccounts = async (req: Request, res: Response) => {
+  if (!req.user) {
+    throw new UnauthenticatedError('User is not logged in');
+  }
+
+  const accounts = await AccountModel.find({
+    createdBy: req.user.userId,
+    enabled: true,
+  });
+  res.status(StatusCodes.OK).json({ accounts });
+};
+
+export { createAccount, getEnabledAccounts };
