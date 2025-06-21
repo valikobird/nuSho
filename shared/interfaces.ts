@@ -1,4 +1,4 @@
-import { UserRole } from '@shared/types';
+import { AccountType, UserRole } from '@shared/types';
 
 export interface User {
   name: string;
@@ -10,4 +10,13 @@ export interface User {
 export interface UserDetails {
   userId: string;
   role: UserRole;
+}
+
+export interface Account {
+  name: string;
+  type: AccountType;
+  currencyCode: string;
+  linkedTo: Account;
+  createdBy: User;
+  enabled: boolean;
 }

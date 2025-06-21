@@ -9,6 +9,7 @@ import {
 import { BadRequestError } from '../errors/customErrors';
 import UserModel from '../models/UserModel';
 import { UserDocument } from '../types/interfaces';
+import { ACCOUNT_TYPES } from '@shared/constants';
 
 const withValidationErrors = (validateValues: ValidationChain[]) => {
   return [
@@ -56,4 +57,14 @@ export const validateLoginInput = withValidationErrors([
     .isEmail()
     .withMessage('invalid email format'),
   body('password').notEmpty().withMessage('password is required'),
+]);
+
+export const validateCreateAccountInput = withValidationErrors([
+  body('name').notEmpty().withMessage('name is required'),
+  body('type')
+    .notEmpty()
+    .withMessage('type is required')
+    .isIn(Object.keys(ACCOUNT_TYPES))
+    .withMessage('incorrect account type'),
+  body('currencyCode').notEmpty().withMessage('currency is required'),
 ]);
