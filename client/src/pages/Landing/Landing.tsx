@@ -16,11 +16,10 @@ const Landing = () => {
           <p>
             Are you tired of hours spent on keeping your finances organized?
             <br />
-            Do you feel pain even just thinking about monthly підбивання
-            рахунків?
+            Do you feel pain even just thinking about monthly підбивання рахунків?
             <br />
-            You are in the right place to start spending minutes and still have
-            clear overview of you financial situation.
+            You are in the right place to start spending minutes and still have clear overview of you financial
+            situation.
           </p>
           <Link to="/register" className="btn register-link">
             Register

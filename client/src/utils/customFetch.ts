@@ -1,11 +1,6 @@
 import { BASE_PATH_API_V1 } from '@shared/constants';
 import type { User } from '@shared/interfaces';
-import type {
-  AccountsResponse,
-  GeneralApiResponse,
-  LoginData,
-  UserResponse,
-} from '../interfaces';
+import type { AccountsResponse, GeneralApiResponse, LoginData, UserResponse } from '../interfaces';
 
 const registerUser = async (data: User): Promise<GeneralApiResponse> => {
   return await apiPost('/auth/register', data);
@@ -24,17 +19,11 @@ const getCurrentUser = async (): Promise<UserResponse | GeneralApiResponse> => {
   return await apiGet<UserResponse>('/users/current-user');
 };
 
-const getEnabledAccounts = async (): Promise<
-  AccountsResponse | GeneralApiResponse
-> => {
+const getEnabledAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
   return await apiGet<AccountsResponse>('/accounts');
 };
 
-async function apiPost(
-  path: string,
-  data: User | LoginData,
-  apiVersion: string = 'V1'
-): Promise<GeneralApiResponse> {
+async function apiPost(path: string, data: User | LoginData, apiVersion: string = 'V1'): Promise<GeneralApiResponse> {
   if (apiVersion === 'V1') {
     return await fetchApiV1<GeneralApiResponse>(path, {
       method: 'POST',
@@ -50,10 +39,7 @@ async function apiPost(
   };
 }
 
-async function apiGet<T>(
-  path: string,
-  apiVersion: string = 'V1'
-): Promise<GeneralApiResponse | T> {
+async function apiGet<T>(path: string, apiVersion: string = 'V1'): Promise<GeneralApiResponse | T> {
   if (apiVersion === 'V1') {
     return await fetchApiV1(path, {
       method: 'GET',
@@ -80,8 +66,7 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
     }
 
     const errorBody = await response.json();
-    errorMessage =
-      errorBody.msg || errorBody.message || JSON.stringify(errorBody);
+    errorMessage = errorBody.msg || errorBody.message || JSON.stringify(errorBody);
   } catch {
     errorMessage = 'Error occurred while fetching json';
   }
@@ -89,10 +74,4 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
   throw new Error(errorMessage);
 }
 
-export {
-  getCurrentUser,
-  getEnabledAccounts,
-  loginUser,
-  logoutUser,
-  registerUser,
-};
+export { getCurrentUser, getEnabledAccounts, loginUser, logoutUser, registerUser };

@@ -40,10 +40,7 @@ const getUser = async (email: string): Promise<UserDocument> => {
   return user;
 };
 
-const checkPassword = async (
-  formPassword: string,
-  userPassword: string
-): Promise<boolean> => {
+const checkPassword = async (formPassword: string, userPassword: string): Promise<boolean> => {
   const isPasswordCorrect = await comparePassword(formPassword, userPassword);
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError('incorrect credentials');

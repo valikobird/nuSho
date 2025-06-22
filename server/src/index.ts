@@ -24,9 +24,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.get('/health', (req: Request, res: Response): void => {
-  res
-    .status(StatusCodes.OK)
-    .json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.status(StatusCodes.OK).json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 app.use(`${BASE_PATH_API_V1}/auth`, authRouter);

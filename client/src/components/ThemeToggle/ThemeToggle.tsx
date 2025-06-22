@@ -4,16 +4,11 @@ import type { GlobalContextType } from '../../interfaces';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
 const ThemeToggle = () => {
-  const { isDarkTheme, toggleDarkTheme }: GlobalContextType =
-    useOutletContext();
+  const { isDarkTheme, toggleDarkTheme }: GlobalContextType = useOutletContext();
 
   return (
     <Wrapper onClick={toggleDarkTheme}>
-      {isDarkTheme ? (
-        <BsFillSunFill className="toggle-icon" />
-      ) : (
-        <BsFillMoonFill className="toggle-icon" />
-      )}
+      {isDarkTheme ? <BsFillSunFill className="toggle-icon" /> : <BsFillMoonFill className="toggle-icon" />}
     </Wrapper>
   );
 };

@@ -25,21 +25,13 @@ const LogoutContainer = ({ userName }: LogoutContainerProps) => {
 
   return (
     <Wrapper>
-      <button
-        type="button"
-        className="btn user-btn"
-        onClick={handleToggleClick}
-      >
+      <button type="button" className="btn user-btn" onClick={handleToggleClick}>
         <FaUserCircle />
         {userName}
         <FaCaretDown />
       </button>
       <div className={`dropdown ${showLogout ? 'show-dropdown' : ''}`}>
-        <button
-          type="button"
-          className="dropdown-btn"
-          onClick={handleUserLogout}
-        >
+        <button type="button" className="dropdown-btn" onClick={handleUserLogout}>
           logout
         </button>
       </div>

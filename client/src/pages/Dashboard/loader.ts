@@ -5,8 +5,7 @@ import type { AccountsResponse, GeneralApiResponse } from '../../interfaces';
 
 const loader = async (): Promise<Account[]> => {
   try {
-    const response: AccountsResponse | GeneralApiResponse =
-      await getEnabledAccounts();
+    const response: AccountsResponse | GeneralApiResponse = await getEnabledAccounts();
     if ((response as GeneralApiResponse).msg) {
       toast.error((response as GeneralApiResponse).msg);
       return [];

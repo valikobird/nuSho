@@ -1,13 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import {
-  UserspaceLayout,
-  Error,
-  HomeLayout,
-  Landing,
-  Login,
-  Register,
-  Dashboard,
-} from './pages';
+import { UserspaceLayout, Error, HomeLayout, Landing, Login, Register, Dashboard } from './pages';
 import { ToastContainer } from 'react-toastify';
 
 // actions
@@ -31,9 +23,7 @@ const router = createBrowserRouter([
         path: 'userspace',
         element: <UserspaceLayout />,
         loader: userspaceLayoutLoader,
-        children: [
-          { index: true, element: <Dashboard />, loader: dashboardLoader },
-        ],
+        children: [{ index: true, element: <Dashboard />, loader: dashboardLoader }],
       },
     ],
   },

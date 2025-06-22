@@ -1,11 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import {
-  body,
-  Result,
-  ValidationChain,
-  ValidationError,
-  validationResult,
-} from 'express-validator';
+import { body, Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
 import { BadRequestError } from '../errors/customErrors';
 import UserModel from '../models/UserModel';
 import { UserDocument } from '../types/interfaces';
@@ -17,9 +11,7 @@ const withValidationErrors = (validateValues: ValidationChain[]) => {
     (req: Request, res: Response, next: NextFunction): void => {
       const errors: Result<ValidationError> = validationResult(req);
       if (!errors.isEmpty()) {
-        const errorMessages: any[] = errors
-          .array()
-          .map((error: ValidationError): any => error.msg);
+        const errorMessages: any[] = errors.array().map((error: ValidationError): any => error.msg);
         const firstMessage = errorMessages[0];
 
         return next(new BadRequestError(errorMessages));
@@ -51,11 +43,7 @@ export const validateRegisterInput = withValidationErrors([
 ]);
 
 export const validateLoginInput = withValidationErrors([
-  body('email')
-    .notEmpty()
-    .withMessage('email is required')
-    .isEmail()
-    .withMessage('invalid email format'),
+  body('email').notEmpty().withMessage('email is required').isEmail().withMessage('invalid email format'),
   body('password').notEmpty().withMessage('password is required'),
 ]);
 

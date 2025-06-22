@@ -14,5 +14,5 @@
     }
   },
   "include": ["client", "server", "shared"],
-  "typeRoots": ["node_modules/@types", "server/src/types"],
+  "typeRoots": ["node_modules/@types", "server/src/types"]
 }
