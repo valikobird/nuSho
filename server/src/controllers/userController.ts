@@ -12,5 +12,5 @@ export const getCurrentUser = async (req: Request, res: Response) => {
   }
 
   const userWithoutPassword: UserDocumentWithoutPassword = user.json();
-  res.status(StatusCodes.OK).json({ ...userWithoutPassword });
+  res.status(StatusCodes.OK).json({ user: userWithoutPassword });
 };

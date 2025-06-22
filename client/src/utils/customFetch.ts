@@ -1,7 +1,11 @@
 import { BASE_PATH_API_V1 } from '@shared/constants';
 import type { User } from '@shared/interfaces';
-import type { GeneralApiResponse, LoginData } from '../interfaces';
-import type { UserDocumentWithoutPassword } from '@shared/types';
+import type {
+  AccountsResponse,
+  GeneralApiResponse,
+  LoginData,
+  UserResponse,
+} from '../interfaces';
 
 const registerUser = async (data: User): Promise<GeneralApiResponse> => {
   return await apiPost('/auth/register', data);
@@ -16,10 +20,14 @@ const logoutUser = async (): Promise<GeneralApiResponse> => {
   return response as GeneralApiResponse;
 };
 
-const getCurrentUser = async (): Promise<
-  UserDocumentWithoutPassword | GeneralApiResponse
+const getCurrentUser = async (): Promise<UserResponse | GeneralApiResponse> => {
+  return await apiGet<UserResponse>('/users/current-user');
+};
+
+const getEnabledAccounts = async (): Promise<
+  AccountsResponse | GeneralApiResponse
 > => {
-  return await apiGet('/users/current-user');
+  return await apiGet<AccountsResponse>('/accounts');
 };
 
 async function apiPost(
@@ -42,10 +50,10 @@ async function apiPost(
   };
 }
 
-async function apiGet(
+async function apiGet<T>(
   path: string,
   apiVersion: string = 'V1'
-): Promise<GeneralApiResponse | UserDocumentWithoutPassword> {
+): Promise<GeneralApiResponse | T> {
   if (apiVersion === 'V1') {
     return await fetchApiV1(path, {
       method: 'GET',
@@ -81,4 +89,10 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
   throw new Error(errorMessage);
 }
 
-export { getCurrentUser, loginUser, logoutUser, registerUser };
+export {
+  getCurrentUser,
+  getEnabledAccounts,
+  loginUser,
+  logoutUser,
+  registerUser,
+};

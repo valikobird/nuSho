@@ -6,6 +6,7 @@ import {
   Landing,
   Login,
   Register,
+  Dashboard,
 } from './pages';
 import { ToastContainer } from 'react-toastify';
 
@@ -15,6 +16,7 @@ import { loginAction } from './pages/Login';
 
 // loaders
 import { userspaceLayoutLoader } from './pages/UserspaceLayout';
+import { dashboardLoader } from './pages/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,9 @@ const router = createBrowserRouter([
         path: 'userspace',
         element: <UserspaceLayout />,
         loader: userspaceLayoutLoader,
-        children: [{}],
+        children: [
+          { index: true, element: <Dashboard />, loader: dashboardLoader },
+        ],
       },
     ],
   },
