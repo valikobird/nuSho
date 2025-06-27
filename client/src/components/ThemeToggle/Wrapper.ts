@@ -11,7 +11,7 @@ const Wrapper = styled.button`
 
   .toggle-icon {
     font-size: 1.15rem;
-    color: var(--text-color);
+    color: var(--text-primary);
   }
 `;
 

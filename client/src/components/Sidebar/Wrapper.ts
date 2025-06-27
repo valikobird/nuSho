@@ -8,7 +8,7 @@ const Wrapper = styled.aside`
     box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
 
     .sidebar-container {
-      background-color: var(--background-secondary-color);
+      background-color: var(--bg-secondary);
       min-height: 100vh;
       height: 100%;
       width: 250px;
@@ -45,7 +45,7 @@ const Wrapper = styled.aside`
     .nav-link {
       display: flex;
       align-items: center;
-      color: var(--text-secondary-color);
+      color: var(--text-secondary);
       padding: 1rem 0 1rem 2.5rem;
       text-transform: capitalize;
       transition: padding-left 0.3s ease-in-out;
@@ -53,7 +53,7 @@ const Wrapper = styled.aside`
 
       &:hover {
         padding-left: 3rem;
-        color: var(--primary-500);
+        color: var(--accent-primary);
         transition: var(--transition);
       }
     }
@@ -66,11 +66,11 @@ const Wrapper = styled.aside`
     }
 
     .active {
-      color: var(--primary-500);
+      color: var(--accent-primary);
     }
 
     .pending {
-      background-color: var(--background-color);
+      background-color: var(--bg-primary);
     }
   }
 `;

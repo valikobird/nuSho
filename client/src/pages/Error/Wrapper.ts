@@ -23,11 +23,11 @@ const Wrapper = styled.main`
     line-height: 1.5;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-    color: var(--text-secondary-color);
+    color: var(--text-secondary);
   }
 
   a {
-    color: var(--primary-500);
+    color: var(--accent-primary);
     text-transform: capitalize;
   }
 `;

@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     box-shadow: var(--shadow-2);
     text-align: center;
     border-radius: var(--border-radius);
-    background-color: var(--primary-500);
+    background-color: var(--accent-primary);
     visibility: hidden;
   }
 
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     background-color: transparent;
     border-color: transparent;
-    color: var(--button-text-color);
+    color: var(--text-primary);
     text-transform: capitalize;
     cursor: pointer;
     width: 100%;

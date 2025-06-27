@@ -15,7 +15,7 @@ const Wrapper = styled.section`
 
   .form {
     max-width: 400px;
-    border-top: 5px solid var(--primary-500);
+    border-top: 5px solid var(--accent-primary);
   }
 
   h4 {
@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   }
 
   .member-btn {
-    color: var(--primary-500);
+    color: var(--accent-primary);
     margin-left: 0.25rem;
     text-transform: capitalize;
   }

@@ -24,7 +24,7 @@ const Wrapper = styled.aside`
   }
 
   .content {
-    background-color: var(--background-secondary-color);
+    background-color: var(--bg-secondary);
     width: var(--fluid-width);
     height: 95vh;
     border-radius: var(--border-radius);
@@ -59,14 +59,14 @@ const Wrapper = styled.aside`
   .nav-link {
     display: flex;
     align-items: center;
-    color: var(--text-secondary-color);
+    color: var(--text-secondary);
     padding: 1rem 0;
     text-transform: capitalize;
     transition: var(--transition);
     font-weight: 500;
 
     &:hover {
-      color: var(--primary-500);
+      color: var(--accent-primary);
     }
   }
 
@@ -79,7 +79,7 @@ const Wrapper = styled.aside`
   }
 
   .active {
-    color: var(--primary-500);
+    color: var(--accent-primary);
   }
 `;
 
