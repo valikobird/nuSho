@@ -32,10 +32,6 @@ const Wrapper = styled.aside`
       padding-left: 2.5rem;
     }
 
-    .logo {
-      height: 3rem;
-    }
-
     .nav-links {
       padding-top: 2rem;
       display: flex;

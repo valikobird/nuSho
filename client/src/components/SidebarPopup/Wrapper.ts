@@ -46,10 +46,6 @@ const Wrapper = styled.aside`
     cursor: pointer;
   }
 
-  .logo {
-    height: 5rem;
-  }
-
   .nav-links {
     padding-top: 2rem;
     display: flex;

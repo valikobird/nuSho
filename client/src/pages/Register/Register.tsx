@@ -6,11 +6,11 @@ const Register = () => {
   return (
     <Wrapper>
       <nav className="nav">
+        <Logo />
         <ThemeToggle />
       </nav>
       <div className="form-page">
         <Form method="post" className="form">
-          <Logo />
           <h4>Register</h4>
           <FormRow type="text" name="name" defaultValue="valiko" labelText="Nickname" />
           <FormRow type="email" name="email" defaultValue="test@nusho.tut" />

@@ -153,6 +153,10 @@ ul {
 
 /* ============= PROJECT CSS =============== */
 
+.logo {
+  height: 3rem;
+}
+
 .container {
   width: var(--fluid-width);
   max-width: var(--max-width);

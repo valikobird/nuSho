@@ -32,7 +32,6 @@ const Wrapper = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    height: 3rem;
   }
 
   .btn-container {

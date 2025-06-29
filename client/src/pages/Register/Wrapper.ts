@@ -4,13 +4,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
 
   .nav {
-    justify-content: flex-end;
-  }
-
-  .logo {
-    display: block;
-    margin: 0 auto 1.38rem;
-    height: 5rem;
+    justify-content: space-between;
   }
 
   .form {

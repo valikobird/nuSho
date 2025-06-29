@@ -3,10 +3,6 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
   nav {
     justify-content: space-between;
-
-    .logo {
-      height: 100%;
-    }
   }
 
   .page {

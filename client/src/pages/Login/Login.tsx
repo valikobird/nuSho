@@ -9,11 +9,11 @@ const Login = () => {
   return (
     <Wrapper>
       <nav className="nav">
+        <Logo />
         <ThemeToggle />
       </nav>
       <div className="form-page">
         <Form method="post" className="form">
-          <Logo />
           <h4>Login</h4>
           <FormRow type="email" name="email" defaultValue="test@nusho.tut" />
           <FormRow type="password" name="password" defaultValue="secret123" />
