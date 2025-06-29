@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import UserModel from '../models/UserModel';
 import { StatusCodes } from 'http-status-codes';
-import { UserDocument } from '../types/interfaces';
+import { UserDocument } from '@shared/interfaces';
 import { UserDocumentWithoutPassword } from '@shared/types';
 import { UnauthenticatedError } from '../errors/customErrors';
 

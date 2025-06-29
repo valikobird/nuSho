@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { body, Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
 import { BadRequestError } from '../errors/customErrors';
 import UserModel from '../models/UserModel';
-import { UserDocument } from '../types/interfaces';
+import { UserDocument } from '@shared/interfaces';
 import { ACCOUNT_TYPES } from '@shared/constants';
 
 const withValidationErrors = (validateValues: ValidationChain[]) => {
