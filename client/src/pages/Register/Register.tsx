@@ -10,7 +10,7 @@ const Register = () => {
         <ThemeToggle />
       </nav>
       <div className="form-page">
-        <Form method="post" className="form">
+        <Form method="post" className="form form-accent">
           <h4>Register</h4>
           <FormRow type="text" name="name" defaultValue="valiko" labelText="Nickname" />
           <FormRow type="email" name="email" defaultValue="test@nusho.tut" />

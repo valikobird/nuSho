@@ -212,6 +212,15 @@ ul {
   padding: 2rem 2.5rem;
   margin: 3rem auto;
 
+  &.form-accent {
+    border-top: 5px solid var(--accent-primary);
+  }
+
+  h4 {
+    text-align: center;
+    margin-bottom: 1.38rem;
+  }
+
   .form-row {
     margin-bottom: 1rem;
   }

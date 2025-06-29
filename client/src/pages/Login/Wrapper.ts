@@ -10,12 +10,6 @@ const Wrapper = styled.section`
 
   .form {
     max-width: 400px;
-    border-top: 5px solid var(--accent-primary);
-  }
-
-  h4 {
-    text-align: center;
-    margin-bottom: 1.38rem;
   }
 
   p {
