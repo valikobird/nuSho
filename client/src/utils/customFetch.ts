@@ -23,6 +23,10 @@ const getEnabledAccounts = async (): Promise<AccountsResponse | GeneralApiRespon
   return await apiGet<AccountsResponse>('/accounts');
 };
 
+const getNotLinkedAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
+  return await apiGet<AccountsResponse>('/accounts/not-linked');
+};
+
 async function apiPost(path: string, data: User | LoginData, apiVersion: string = 'V1'): Promise<GeneralApiResponse> {
   if (apiVersion === 'V1') {
     return await fetchApiV1<GeneralApiResponse>(path, {
@@ -74,4 +78,4 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
   throw new Error(errorMessage);
 }
 
-export { getCurrentUser, getEnabledAccounts, loginUser, logoutUser, registerUser };
+export { getCurrentUser, getEnabledAccounts, getNotLinkedAccounts, loginUser, logoutUser, registerUser };

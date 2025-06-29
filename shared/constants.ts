@@ -6,9 +6,9 @@ export enum USER_ROLES {
 }
 
 export enum ACCOUNT_TYPES {
-  CHECKING = 'checking',
-  CREDIT_CARD = 'credit card',
-  DEBIT_CARD = 'debit card',
-  INVESTMENT = 'investment',
-  CREDIT = 'credit',
+  CHECKING = 'Checking',
+  CREDIT_CARD = 'Credit card',
+  DEBIT_CARD = 'Debit card',
+  INVESTMENT = 'Investment',
+  CREDIT = 'Credit',
 }
