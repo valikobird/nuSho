@@ -1,5 +1,5 @@
 import { Form, Link } from 'react-router-dom';
-import { FormRow, Logo, ThemeToggle } from '../../components';
+import { FormRow, Logo, SubmitButton, ThemeToggle } from '../../components';
 import Wrapper from './Wrapper';
 
 const Register = () => {
@@ -15,9 +15,7 @@ const Register = () => {
           <FormRow type="text" name="name" defaultValue="valiko" labelText="Nickname" />
           <FormRow type="email" name="email" defaultValue="test@nusho.tut" />
           <FormRow type="password" name="password" defaultValue="secret123" />
-          <button type="submit" className="btn btn-block">
-            submit
-          </button>
+          <SubmitButton label="submit" />
           <p>
             Already a member?
             <Link to="/login" className="member-btn">
