@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     background-color: transparent;
     border-color: transparent;
-    color: var(--text-primary);
+    color: var(--text-btn);
     text-transform: capitalize;
     cursor: pointer;
     width: 100%;

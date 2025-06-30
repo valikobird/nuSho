@@ -18,7 +18,7 @@ const NavLinks = ({ isSidebarPopup, toggleSidebar }: NavLinksProps) => {
       {links.map((link: NavLinkDetails) => {
         const { text, path, icon } = link;
         return (
-          <NavLink to={path} key={text} className="nav-link" onClick={handleLinkClick}>
+          <NavLink to={path} key={text} className="nav-link" onClick={handleLinkClick} end>
             <span className="icon">{icon}</span>
             {text}
           </NavLink>
