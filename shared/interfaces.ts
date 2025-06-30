@@ -22,7 +22,12 @@ export interface Account {
   name: string;
   type: AccountType;
   currencyCode: string;
-  linkedTo: Account;
-  createdBy: User;
+  linkedTo?: string | Account;
+  createdBy: string | User;
   enabled: boolean;
+}
+
+export interface PopulatedAccount extends Omit<Account, 'linkedTo' | 'createdBy'> {
+  linkedTo?: Account;
+  createdBy: User;
 }

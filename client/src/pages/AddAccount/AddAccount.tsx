@@ -1,6 +1,6 @@
 import Wrapper from './Wrapper';
 import { Form, useLoaderData } from 'react-router-dom';
-import { FormRow, FormRowSelect } from '../../components';
+import { FormRow, FormRowSelect, SubmitButton } from '../../components';
 
 const AddAccount = () => {
   const { accounts, accountTypes, currencies } = useLoaderData();
@@ -13,6 +13,7 @@ const AddAccount = () => {
         <FormRowSelect name="type" list={accountTypes} />
         <FormRowSelect name="currency" list={currencies} />
         <FormRowSelect name="linkedTo" list={accounts} labelText="linked to" />
+        <SubmitButton label="submit" />
       </Form>
     </Wrapper>
   );

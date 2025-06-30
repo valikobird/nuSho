@@ -1,33 +1,41 @@
 import { BASE_PATH_API_V1 } from '@shared/constants';
-import type { User } from '@shared/interfaces';
+import type { Account, User } from '@shared/interfaces';
 import type { AccountsResponse, GeneralApiResponse, LoginData, UserResponse } from '../interfaces';
 
-const registerUser = async (data: User): Promise<GeneralApiResponse> => {
+export const registerUser = async (data: User): Promise<GeneralApiResponse> => {
   return await apiPost('/auth/register', data);
 };
 
-const loginUser = async (data: LoginData): Promise<GeneralApiResponse> => {
+export const loginUser = async (data: LoginData): Promise<GeneralApiResponse> => {
   return await apiPost('/auth/login', data);
 };
 
-const logoutUser = async (): Promise<GeneralApiResponse> => {
+export const logoutUser = async (): Promise<GeneralApiResponse> => {
   const response = await apiGet('/auth/logout');
   return response as GeneralApiResponse;
 };
 
-const getCurrentUser = async (): Promise<UserResponse | GeneralApiResponse> => {
+export const getCurrentUser = async (): Promise<UserResponse | GeneralApiResponse> => {
   return await apiGet<UserResponse>('/users/current-user');
 };
 
-const getEnabledAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
+export const getEnabledAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
   return await apiGet<AccountsResponse>('/accounts');
 };
 
-const getNotLinkedAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
+export const getNotLinkedAccounts = async (): Promise<AccountsResponse | GeneralApiResponse> => {
   return await apiGet<AccountsResponse>('/accounts/not-linked');
 };
 
-async function apiPost(path: string, data: User | LoginData, apiVersion: string = 'V1'): Promise<GeneralApiResponse> {
+export const createAccount = async (data: Partial<Account>): Promise<GeneralApiResponse> => {
+  return await apiPost('/accounts', data);
+};
+
+async function apiPost(
+  path: string,
+  data: User | LoginData | Partial<Account>,
+  apiVersion: string = 'V1'
+): Promise<GeneralApiResponse> {
   if (apiVersion === 'V1') {
     return await fetchApiV1<GeneralApiResponse>(path, {
       method: 'POST',
@@ -77,5 +85,3 @@ async function fetchJson<T>(path: string, options?: RequestInit): Promise<T> {
 
   throw new Error(errorMessage);
 }
-
-export { getCurrentUser, getEnabledAccounts, getNotLinkedAccounts, loginUser, logoutUser, registerUser };

@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 // actions
 import { registerAction } from './pages/Register';
 import { loginAction } from './pages/Login';
+import { addAccountAction } from './pages/AddAccount';
 
 // loaders
 import { userspaceLayoutLoader } from './pages/UserspaceLayout';
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
         loader: userspaceLayoutLoader,
         children: [
           { index: true, element: <Dashboard />, loader: dashboardLoader },
-          { path: 'add-account', element: <AddAccount />, loader: addAccountLoader },
+          { path: 'add-account', element: <AddAccount />, loader: addAccountLoader, action: addAccountAction },
         ],
       },
     ],
