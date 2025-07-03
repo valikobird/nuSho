@@ -36,6 +36,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     width: 100%;
     height: 100%;
+    font-family: var(--font-family), sans-serif;
     font-size: 1rem;
   }
 `;
