@@ -3,8 +3,9 @@ import { StatusCodes } from 'http-status-codes';
 import AccountModel from '../models/AccountModel';
 import { UnauthenticatedError } from '../errors/customErrors';
 import { UserDetails } from '@shared/interfaces';
+import AccountBalanceModel from '../models/AccountBalanceModel';
 
-const createAccount = async (req: Request, res: Response): Promise<void> => {
+export const createAccount = async (req: Request, res: Response): Promise<void> => {
   const user = req.user;
   checkUser(user);
 
@@ -14,7 +15,7 @@ const createAccount = async (req: Request, res: Response): Promise<void> => {
   res.status(StatusCodes.CREATED).json({ msg: 'account created successfully' });
 };
 
-const getEnabledAccounts = async (req: Request, res: Response): Promise<void> => {
+export const getEnabledAccounts = async (req: Request, res: Response): Promise<void> => {
   const user = req.user;
   checkUser(user);
 
@@ -25,7 +26,7 @@ const getEnabledAccounts = async (req: Request, res: Response): Promise<void> =>
   res.status(StatusCodes.OK).json({ accounts });
 };
 
-const getNotLinkedAccounts = async (req: Request, res: Response): Promise<void> => {
+export const getNotLinkedAccounts = async (req: Request, res: Response): Promise<void> => {
   const user = req.user;
   checkUser(user);
 
@@ -38,10 +39,19 @@ const getNotLinkedAccounts = async (req: Request, res: Response): Promise<void> 
   res.status(StatusCodes.OK).json({ accounts });
 };
 
+export const setAccountBalance = async (req: Request, res: Response): Promise<void> => {
+  const user = req.user;
+  checkUser(user);
+
+  req.body.account = req.params.id;
+  req.body.createdBy = user!.userId;
+
+  await AccountBalanceModel.create(req.body);
+  res.status(StatusCodes.CREATED).json({ msg: 'account balance changed successfully' });
+};
+
 const checkUser = (user?: UserDetails) => {
   if (!user) {
     throw new UnauthenticatedError('User is not logged in');
   }
 };
-
-export { createAccount, getEnabledAccounts, getNotLinkedAccounts };

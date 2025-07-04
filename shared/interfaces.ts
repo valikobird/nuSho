@@ -31,3 +31,10 @@ export interface PopulatedAccount extends Omit<Account, 'linkedTo' | 'createdBy'
   linkedTo?: Account;
   createdBy: User;
 }
+
+export interface AccountBalance {
+  account: string | Account;
+  date: Date;
+  amount: number;
+  createdBy: string | User;
+}
