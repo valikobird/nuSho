@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import { env } from './config/env';
+import { env } from './infrastructure/config/env';
 
 import express, { Request, Response } from 'express';
 const app = express();
@@ -9,13 +9,13 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { StatusCodes } from 'http-status-codes';
 import cookieParser from 'cookie-parser';
-import connectDb from './db/connect';
+import connectDb from './infrastructure/config/database';
 import { BASE_PATH_API_V1 } from '@shared/constants';
-import { authRouter, userRouter, accountRouter } from './routes';
+import { authRouter, userRouter, accountRouter } from './presentation/web/routes';
 
 // middleware
-import errorHandlerMiddleware from './middleware/errorHandlerMiddleware';
-import { authenticateUser } from './middleware/authMiddleware';
+import errorHandlerMiddleware from './presentation/web/middleware/errorHandlerMiddleware';
+import { authenticateUser } from './presentation/web/middleware/authMiddleware';
 
 const morganMode: string = env.NODE_ENV === 'development' ? 'dev' : 'combined';
 app.use(morgan(morganMode));
