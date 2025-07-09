@@ -1,4 +1,4 @@
-import { UserInfoNoPassword } from './domain/ports/UserRepository';
+import type { UserInfoNoPassword } from './domain/ports/UserRepository';
 
 declare global {
   namespace Express {

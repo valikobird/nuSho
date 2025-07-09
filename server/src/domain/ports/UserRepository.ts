@@ -1,4 +1,4 @@
-import { User } from '../entities/User';
+import type { User } from '../entities/User';
 
 export interface UserRepository {
   create(userData: Omit<UserInfo, 'createdAt' | 'updatedAt'>): Promise<User>;
@@ -16,8 +16,8 @@ export interface UserInfo {
   updatedAt: Date;
 }
 
-export interface UserInfoNoPassword extends Omit<UserInfo, 'password'> {}
+export type UserInfoNoPassword = Omit<UserInfo, 'password'>;
 
-export interface UserRegisterInput extends Omit<UserInfo, 'createdAt' | 'updatedAt'> {}
+export type UserRegisterInput = Omit<UserInfo, 'createdAt' | 'updatedAt'>;
 
-export interface UserLoginInput extends Omit<UserInfo, 'name' | 'createdAt' | 'updatedAt'> {}
+export type UserLoginInput = Omit<UserInfo, 'name' | 'createdAt' | 'updatedAt'>;

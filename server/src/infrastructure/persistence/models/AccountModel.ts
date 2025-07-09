@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-import { ACCOUNT_TYPES, AccountInfo } from '../../../domain/ports/AccountRepository';
+import type { AccountInfo } from '../../../domain/ports/AccountRepository';
+import { ACCOUNT_TYPES } from '../../../domain/ports/AccountRepository';
 
 const AccountSchema = new mongoose.Schema<AccountInfo>(
   {

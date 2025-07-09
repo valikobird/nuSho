@@ -1,5 +1,5 @@
-import { AccountBalanceCreateData, AccountBalanceRepository } from '../../domain/ports/AccountBalanceRepository';
-import { AccountUseCases } from './AccountUseCases';
+import type { AccountBalanceCreateData, AccountBalanceRepository } from '../../domain/ports/AccountBalanceRepository';
+import type { AccountUseCases } from './AccountUseCases';
 
 export class AccountBalanceUseCases {
   constructor(

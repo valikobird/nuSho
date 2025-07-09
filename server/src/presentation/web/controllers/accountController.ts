@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { Container } from '../../../infrastructure/Container';
 import { StatusCodes } from 'http-status-codes';
-import { AccountCreateInput } from '../../../domain/ports/AccountRepository';
-import { AccountBalanceCreateData } from '../../../domain/ports/AccountBalanceRepository';
+import type { AccountCreateInput } from '../../../domain/ports/AccountRepository';
+import type { AccountBalanceCreateData } from '../../../domain/ports/AccountBalanceRepository';
 import { AccountBalance } from '../../../domain/entities/AccountBalance';
 
 const container = Container.getInstance();

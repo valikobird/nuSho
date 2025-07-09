@@ -1,5 +1,5 @@
-import { AccountInfo } from './AccountRepository';
-import { UserInfo } from './UserRepository';
+import type { AccountInfo } from './AccountRepository';
+import type { UserInfo } from './UserRepository';
 
 export interface AccountBalanceRepository {
   create(accountBalanceData: AccountBalanceCreateInput): Promise<void>;

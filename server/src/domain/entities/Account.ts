@@ -1,5 +1,6 @@
-import { AccountCreateData, AccountCreateInput, AccountInfo, type AccountType } from '../ports/AccountRepository';
-import { UserInfoNoPassword } from '../ports/UserRepository';
+import type { AccountCreateData, AccountCreateInput, AccountInfo} from '../ports/AccountRepository';
+import { type AccountType } from '../ports/AccountRepository';
+import type { UserInfoNoPassword } from '../ports/UserRepository';
 
 export class Account implements AccountInfo {
   constructor(

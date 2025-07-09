@@ -1,7 +1,8 @@
-import { AccountCreateData, AccountInfo, AccountRepository } from '../../domain/ports/AccountRepository';
+import type { AccountCreateData, AccountInfo, AccountRepository } from '../../domain/ports/AccountRepository';
 import AccountModel from '../persistence/models/AccountModel';
 import { Account } from '../../domain/entities/Account';
-import mongoose, { Document } from 'mongoose';
+import type { Document } from 'mongoose';
+import type mongoose from 'mongoose';
 
 interface AccountDocument extends Omit<AccountInfo, 'id'>, Document {
   _id: mongoose.Types.ObjectId;
@@ -14,7 +15,7 @@ export class MongoAccountRepository implements AccountRepository {
   }
 
   async findByUserId(userId: string, isEnabled?: boolean): Promise<Account[]> {
-    let query: { createdBy: string; enabled?: boolean } = { createdBy: userId };
+    const query: { createdBy: string; enabled?: boolean } = { createdBy: userId };
     if (typeof isEnabled === 'boolean') {
       query['enabled'] = isEnabled;
     }

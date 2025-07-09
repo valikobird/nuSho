@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { AccountBalanceInfo } from '../../../domain/ports/AccountBalanceRepository';
+import type { AccountBalanceInfo } from '../../../domain/ports/AccountBalanceRepository';
 
 const AccountBalanceSchema = new mongoose.Schema<AccountBalanceInfo>(
   {

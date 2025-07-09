@@ -1,5 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
-import { body, param, Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
+import type { NextFunction, Request, Response } from 'express';
+import type { Result, ValidationChain, ValidationError} from 'express-validator';
+import { body, param, validationResult } from 'express-validator';
 import { ValidationError as DomainValidationError } from '../../../domain/errors/DomainErrors';
 import { ACCOUNT_TYPES } from '../../../domain/ports/AccountRepository';
 

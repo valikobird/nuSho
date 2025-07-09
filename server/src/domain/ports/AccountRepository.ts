@@ -1,5 +1,5 @@
-import { UserInfoNoPassword } from './UserRepository';
-import { Account } from '../entities/Account';
+import type { UserInfoNoPassword } from './UserRepository';
+import type { Account } from '../entities/Account';
 
 export interface AccountRepository {
   findById(id: string): Promise<Account | null>;

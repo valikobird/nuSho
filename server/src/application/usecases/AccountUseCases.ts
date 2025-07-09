@@ -1,4 +1,4 @@
-import { AccountCreateData, AccountCreateInput, AccountRepository } from '../../domain/ports/AccountRepository';
+import type { AccountCreateData, AccountCreateInput, AccountRepository } from '../../domain/ports/AccountRepository';
 import { Account } from '../../domain/entities/Account';
 import { AuthorizationError, NotFoundError } from '../../domain/errors/DomainErrors';
 

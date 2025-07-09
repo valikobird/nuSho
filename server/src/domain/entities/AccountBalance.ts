@@ -1,10 +1,10 @@
-import {
+import type {
   AccountBalanceCreateData,
   AccountBalanceCreateInput,
   AccountBalanceInfo,
 } from '../ports/AccountBalanceRepository';
-import { AccountInfo } from '../ports/AccountRepository';
-import { UserInfo } from '../ports/UserRepository';
+import type { AccountInfo } from '../ports/AccountRepository';
+import type { UserInfo } from '../ports/UserRepository';
 
 export class AccountBalance implements AccountBalanceInfo {
   constructor(

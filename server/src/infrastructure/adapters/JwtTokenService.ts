@@ -1,4 +1,4 @@
-import { TokenPayload, TokenService } from '../../domain/ports/TokenService';
+import type { TokenPayload, TokenService } from '../../domain/ports/TokenService';
 import jwt from 'jsonwebtoken';
 import { env } from '../config/env';
 

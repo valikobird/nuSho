@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
+import type { DomainError } from '../../../domain/errors/DomainErrors';
 import {
-  DomainError,
   ValidationError,
   AuthenticationError,
   AuthorizationError,

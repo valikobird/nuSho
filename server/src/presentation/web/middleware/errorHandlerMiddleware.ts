@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { DomainError } from '../../../domain/errors/DomainErrors';
 import { HttpError } from '../errors/HttpErrors';
 import { StatusCodes } from 'http-status-codes';

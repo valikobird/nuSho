@@ -8,11 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["shared/*"]
-    }
+    "baseUrl": "."
   },
-  "include": ["client", "server", "shared"],
+  "include": ["client", "server"],
   "typeRoots": ["node_modules/@types", "server/src/types"]
 }

@@ -1,4 +1,4 @@
-import { PasswordService } from '../../domain/ports/PasswordService';
+import type { PasswordService } from '../../domain/ports/PasswordService';
 import bcrypt from 'bcrypt';
 
 export class BcryptPasswordService implements PasswordService {

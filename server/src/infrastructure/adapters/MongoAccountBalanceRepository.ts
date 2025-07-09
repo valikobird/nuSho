@@ -1,4 +1,4 @@
-import { AccountBalanceCreateInput, AccountBalanceRepository } from '../../domain/ports/AccountBalanceRepository';
+import type { AccountBalanceCreateInput, AccountBalanceRepository } from '../../domain/ports/AccountBalanceRepository';
 import AccountBalanceModel from '../persistence/models/AccountBalanceModel';
 
 export class MongoAccountBalanceRepository implements AccountBalanceRepository {

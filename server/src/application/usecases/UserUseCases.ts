@@ -1,8 +1,8 @@
-import { UserLoginInput, UserRegisterInput, UserRepository } from '../../domain/ports/UserRepository';
+import type { UserLoginInput, UserRegisterInput, UserRepository } from '../../domain/ports/UserRepository';
 import { User } from '../../domain/entities/User';
 import { AuthenticationError, NotFoundError, ValidationError } from '../../domain/errors/DomainErrors';
-import { PasswordService } from '../../domain/ports/PasswordService';
-import { TokenPayload, TokenService } from '../../domain/ports/TokenService';
+import type { PasswordService } from '../../domain/ports/PasswordService';
+import type { TokenPayload, TokenService } from '../../domain/ports/TokenService';
 
 export class UserUseCases {
   constructor(
@@ -16,7 +16,7 @@ export class UserUseCases {
 
     const existingUser = await this.userRepository.findByEmail(email);
     if (existingUser) {
-      throw new ValidationError('User with this email already exists');
+      throw new ValidationError('User already exists');
     }
 
     const hashedPassword = await this.passwordService.hash(password);

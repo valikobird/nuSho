@@ -1,5 +1,5 @@
 import { model, Schema } from 'mongoose';
-import { UserInfo } from '../../../domain/ports/UserRepository';
+import type { UserInfo } from '../../../domain/ports/UserRepository';
 
 const UserSchema = new Schema<UserInfo>(
   {

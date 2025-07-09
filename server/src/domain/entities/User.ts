@@ -1,4 +1,4 @@
-import { UserInfoNoPassword } from '../ports/UserRepository';
+import type { UserInfoNoPassword } from '../ports/UserRepository';
 
 export class User implements UserInfoNoPassword {
   constructor(

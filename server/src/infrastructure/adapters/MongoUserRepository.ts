@@ -1,7 +1,8 @@
-import { UserInfo, UserRegisterInput, UserRepository } from '../../domain/ports/UserRepository';
+import type { UserInfo, UserRegisterInput, UserRepository } from '../../domain/ports/UserRepository';
 import { User } from '../../domain/entities/User';
 import UserModel from '../persistence/models/UserModel';
-import mongoose, { Document } from 'mongoose';
+import type { Document } from 'mongoose';
+import type mongoose from 'mongoose';
 
 interface UserDocument extends Omit<UserInfo, 'id'>, Document {
   _id: mongoose.Types.ObjectId;

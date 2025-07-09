@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { Container } from '../../../infrastructure/Container';
-import { UserLoginInput, UserRegisterInput } from '../../../domain/ports/UserRepository';
+import type { UserLoginInput, UserRegisterInput } from '../../../domain/ports/UserRepository';
 import { env } from '../../../infrastructure/config/env';
 import { StatusCodes } from 'http-status-codes';
 

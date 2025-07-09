@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { Container } from '../../../infrastructure/Container';
-import { User } from '../../../domain/entities/User';
+import type { User } from '../../../domain/entities/User';
 import { AuthenticationError } from '../../../domain/errors/DomainErrors';
 
 const userUseCases = Container.getInstance().getUserUseCases();
