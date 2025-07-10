@@ -4,7 +4,7 @@ import UserModel from '../persistence/models/UserModel';
 import type { Document } from 'mongoose';
 import type mongoose from 'mongoose';
 
-interface UserDocument extends Omit<UserInfo, 'id'>, Document {
+export interface UserDocument extends Omit<UserInfo, 'id'>, Document {
   _id: mongoose.Types.ObjectId;
 }
 

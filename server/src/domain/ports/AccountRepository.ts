@@ -29,7 +29,9 @@ export enum ACCOUNT_TYPES {
   CREDIT = 'Credit',
 }
 
-export interface AccountCreateInput
-  extends Omit<AccountInfo, 'id' | 'linkedTo' | 'createdBy' | 'enabled' | 'createdAt' | 'updatedAt'> {}
+export type AccountCreateInput = Omit<
+  AccountInfo,
+  'id' | 'linkedTo' | 'createdBy' | 'enabled' | 'createdAt' | 'updatedAt'
+>;
 
-export interface AccountCreateData extends Omit<AccountInfo, 'id' | 'createdAt' | 'updatedAt' | 'linkedTo'> {}
+export type AccountCreateData = Omit<AccountInfo, 'id' | 'createdAt' | 'updatedAt' | 'linkedTo'>;

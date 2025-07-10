@@ -20,4 +20,4 @@ export type UserInfoNoPassword = Omit<UserInfo, 'password'>;
 
 export type UserRegisterInput = Omit<UserInfo, 'createdAt' | 'updatedAt'>;
 
-export type UserLoginInput = Omit<UserInfo, 'name' | 'createdAt' | 'updatedAt'>;
+export type UserLoginInput = Omit<UserInfo, 'id' | 'name' | 'createdAt' | 'updatedAt'>;

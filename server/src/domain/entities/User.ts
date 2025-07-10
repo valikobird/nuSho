@@ -11,8 +11,8 @@ export class User implements UserInfoNoPassword {
 
   static create(name: string, email: string): Omit<UserInfoNoPassword, 'createdAt' | 'updatedAt'> {
     return {
-      name,
-      email,
+      name: name.trim(),
+      email: email.trim(),
     };
   }
 }
