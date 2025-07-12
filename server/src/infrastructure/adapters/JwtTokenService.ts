@@ -1,4 +1,5 @@
 import type { TokenPayload, TokenService } from '../../domain/ports/TokenService';
+import type { JwtPayload } from 'jsonwebtoken';
 import jwt from 'jsonwebtoken';
 import { env } from '../config/env';
 
@@ -9,7 +10,7 @@ export class JwtTokenService implements TokenService {
     });
   }
 
-  verifyToken(token: string): TokenPayload {
-    return jwt.verify(token, env.JWT_SECRET) as TokenPayload;
+  verifyToken(token: string): JwtPayload | string {
+    return jwt.verify(token, env.JWT_SECRET);
   }
 }

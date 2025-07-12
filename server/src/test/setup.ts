@@ -4,7 +4,7 @@ vi.mock('../infrastructure/config/env', () => ({
   env: {
     NODE_ENV: 'test',
     JWT_SECRET: 'test-jwt-secret',
-    JWT_EXPIRES_IN: '1d',
+    JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '1d',
     MONGO_URL: 'mongodb://localhost:27017/test',
     PORT: 5100,
   },
