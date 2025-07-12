@@ -26,10 +26,6 @@ export class UserUseCases {
     return { token };
   }
 
-  async getUserByEmail(email: string): Promise<User | null> {
-    return await this.userRepository.findByEmail(email);
-  }
-
   async loginUser(userLoginInput: UserLoginInput): Promise<{ token: string }> {
     const userWithPassword = await this.userRepository.findByEmailWithPassword(userLoginInput.email);
     if (!userWithPassword) {
