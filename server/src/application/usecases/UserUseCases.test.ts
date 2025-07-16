@@ -5,7 +5,7 @@ import type { PasswordService } from '../../domain/ports/PasswordService';
 import type { TokenService } from '../../domain/ports/TokenService';
 import type { User } from '../../domain/entities/User';
 
-describe('UserUseCases', () => {
+describe('User use cases', () => {
   let userUseCases: UserUseCases;
   let mockUserRepository: {
     [K in keyof UserRepository]: MockedFunction<UserRepository[K]>;

@@ -1,4 +1,4 @@
-import { beforeEach, describe, it, expect, vi } from 'vitest';
+import { beforeEach, describe, it, expect } from 'vitest';
 import { JwtTokenService } from './JwtTokenService';
 import type { TokenPayload } from '../../domain/ports/TokenService';
 import type { JwtPayload } from 'jsonwebtoken';
