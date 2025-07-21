@@ -34,7 +34,7 @@ export class HttpClient {
     let errorMessage: string;
     try {
       if (response.ok) {
-        return await response.json();
+        return (await response.json()) satisfies T;
       }
 
       const errorBody = await response.json();

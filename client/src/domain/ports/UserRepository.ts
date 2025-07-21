@@ -20,8 +20,8 @@ export interface UserInfo {
   name: string;
   email: string;
   password: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: Date | string;
+  updatedAt: Date | string;
 }
 
 export interface LoginCredentials {
