@@ -1,6 +1,15 @@
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  esbuild: {
+    target: 'es2022',
+    tsconfigRaw: {
+      compilerOptions: {
+        target: 'es2022',
+        useDefineForClassFields: false,
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'node',
@@ -15,8 +24,8 @@ export default defineConfig({
         '**/*.config.*',
         '**/index.ts',
         'src/index.ts',
-        'src/express.d.ts'
-      ]
-    }
-  }
+        'src/express.d.ts',
+      ],
+    },
+  },
 });

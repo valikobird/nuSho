@@ -2,6 +2,15 @@ import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  esbuild: {
+    target: 'es2022',
+    tsconfigRaw: {
+      compilerOptions: {
+        target: 'es2022',
+        useDefineForClassFields: false,
+      },
+    },
+  },
   build: {
     target: 'node18',
     outDir: 'dist',
