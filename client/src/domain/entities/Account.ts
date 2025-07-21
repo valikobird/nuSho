@@ -13,14 +13,6 @@ export class Account implements AccountInfo {
     public readonly updatedAt?: Date
   ) {}
 
-  isActive(): boolean {
-    return this.enabled;
-  }
-
-  isLinked(): boolean {
-    return this.linkedTo !== null;
-  }
-
   static fromApiResponse(data: AccountInfo): Account {
     return new Account(
       data.id!,
@@ -31,6 +23,14 @@ export class Account implements AccountInfo {
       data.createdBy,
       data.enabled
     );
+  }
+
+  isActive(): boolean {
+    return this.enabled;
+  }
+
+  isLinked(): boolean {
+    return this.linkedTo !== null;
   }
 
   getDisplayName(): string {
