@@ -21,9 +21,11 @@ export const getEnabledAccounts = async (req: Request, res: Response): Promise<v
 };
 
 export const setAccountBalance = async (req: Request, res: Response): Promise<void> => {
+  const accountId = typeof req.body.account === 'string' ? req.body.account : req.body.account.id;
+
   const accountBalanceInfo = AccountBalance.create({
-    account: req.params.id,
-    date: new Date(req.body.date),
+    account: accountId,
+    date: req.body.date,
     amount: req.body.amount,
     createdBy: req.user!.id!,
   }) satisfies AccountBalanceCreateData;

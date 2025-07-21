@@ -14,6 +14,6 @@ export interface AccountBalanceInfo {
   createdAt: Date;
 }
 
-export interface AccountBalanceCreateInput extends Omit<AccountBalanceInfo, 'id' | 'createdAt'> {}
+export type AccountBalanceCreateInput = Omit<AccountBalanceInfo, 'id' | 'createdAt'>;
 
-export interface AccountBalanceCreateData extends AccountBalanceCreateInput {}
+export type AccountBalanceCreateData = AccountBalanceCreateInput;

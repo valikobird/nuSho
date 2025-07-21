@@ -1,6 +1,6 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
@@ -9,8 +9,10 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["client", "server"],
-  "typeRoots": ["node_modules/@types", "server/src/types"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

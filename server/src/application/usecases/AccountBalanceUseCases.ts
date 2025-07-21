@@ -16,7 +16,9 @@ export class AccountBalanceUseCases {
     const accountId =
       typeof accountBalanceData.account === 'string' ? accountBalanceData.account : accountBalanceData.account.id!;
 
+    // Validate that the account exists and the user can access it
     await this.accountUseCases.getUserAccountById(userId, accountId);
+
     await this.accountBalanceRepository.create(accountBalanceData);
   }
 }

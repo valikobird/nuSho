@@ -1,5 +1,7 @@
-import { beforeEach, describe, it, expect } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 import { BcryptPasswordService } from './BcryptPasswordService';
+
+vi.unmock('./BcryptPasswordService');
 
 describe('BcryptPasswordService', () => {
   let passwordService: BcryptPasswordService;

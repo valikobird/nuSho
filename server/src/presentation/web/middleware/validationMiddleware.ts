@@ -1,8 +1,9 @@
 import type { NextFunction, Request, Response } from 'express';
-import type { Result, ValidationChain, ValidationError} from 'express-validator';
-import { body, param, validationResult } from 'express-validator';
+import type { Result, ValidationChain, ValidationError } from 'express-validator';
+import { body, validationResult } from 'express-validator';
 import { ValidationError as DomainValidationError } from '../../../domain/errors/DomainErrors';
 import { ACCOUNT_TYPES } from '../../../domain/ports/AccountRepository';
+import cc from 'currency-codes';
 
 const withValidationErrors = (validateValues: ValidationChain[]) => {
   return [
@@ -10,7 +11,7 @@ const withValidationErrors = (validateValues: ValidationChain[]) => {
     (req: Request, res: Response, next: NextFunction): void => {
       const errors: Result<ValidationError> = validationResult(req);
       if (!errors.isEmpty()) {
-        const errorMessages: any[] = errors.array().map((error: ValidationError): any => error.msg);
+        const errorMessages: unknown[] = errors.array().map((error: ValidationError): unknown => error.msg);
         return next(new DomainValidationError(errorMessages.join(', ')));
       }
 
@@ -41,11 +42,21 @@ export const validateCreateAccountInput = withValidationErrors([
     .withMessage('Type is required')
     .isIn(Object.keys(ACCOUNT_TYPES))
     .withMessage('Incorrect account type'),
-  body('currencyCode').notEmpty().withMessage('Currency is required'),
+  body('currencyCode')
+    .notEmpty()
+    .withMessage('Currency is required')
+    .custom((currencyCode) => {
+      const currencyDetails = cc.code(currencyCode);
+      if (!currencyDetails) {
+        throw new Error('Invalid currency code');
+      }
+      return true;
+    }),
 ]);
 
 export const validateCreateAccountBalanceInput = withValidationErrors([
-  param('id').notEmpty().withMessage('Account is required'),
-  body('date').notEmpty().withMessage('Date is required').isDate().withMessage('Invalid date format'),
+  body('account').notEmpty().withMessage('Account is required'),
+  body('date').notEmpty().withMessage('Date is required'),
   body('amount').notEmpty().withMessage('Amount is required').isNumeric().withMessage('Invalid amount'),
+  body('createdBy').notEmpty().withMessage('Created by is required'),
 ]);

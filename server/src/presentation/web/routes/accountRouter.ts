@@ -5,6 +5,6 @@ import { validateCreateAccountBalanceInput, validateCreateAccountInput } from '.
 const router = Router();
 
 router.route('/').get(getEnabledAccounts).post(validateCreateAccountInput, createAccount);
-router.route('/:id/balance').post(validateCreateAccountBalanceInput, setAccountBalance);
+router.route('/balance').post(validateCreateAccountBalanceInput, setAccountBalance);
 
 export default router;

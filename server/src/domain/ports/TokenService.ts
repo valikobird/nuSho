@@ -1,6 +1,6 @@
 export interface TokenService {
   generateToken(payload: TokenPayload): string;
-  verifyToken(token: string): any;
+  verifyToken(token: string): unknown;
 }
 
 export interface TokenPayload {
