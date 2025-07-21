@@ -6,7 +6,7 @@ import { StatusCodes } from 'http-status-codes';
 
 export interface CookieDetails {
   name: string;
-  value: any;
+  value: unknown;
   lifeSpan?: number;
 }
 
@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const logout = async (req: Request, res: Response): Promise<void> => {
-  setHttpCookie(res, { name: 'token', value: null, lifeSpan: 0 });
+  setHttpCookie(res, { name: 'token', value: '', lifeSpan: 0 });
   res.status(StatusCodes.OK).json({ msg: 'logout successful' });
 };
 

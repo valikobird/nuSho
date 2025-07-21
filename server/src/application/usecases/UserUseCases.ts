@@ -29,7 +29,7 @@ export class UserUseCases {
   async loginUser(userLoginInput: UserLoginInput): Promise<{ token: string }> {
     const userWithPassword = await this.userRepository.findByEmailWithPassword(userLoginInput.email);
     if (!userWithPassword) {
-      throw new AuthenticationError('Invalid credentials');
+      throw new NotFoundError('Invalid credentials');
     }
 
     const { user, password } = userWithPassword;
@@ -43,7 +43,8 @@ export class UserUseCases {
   }
 
   getUserTokenData(token: string): TokenPayload {
-    return this.tokenService.verifyToken(token);
+    const payload = this.tokenService.verifyToken(token);
+    return { userId: payload.userId };
   }
 
   async getUserById(userId: string): Promise<User> {

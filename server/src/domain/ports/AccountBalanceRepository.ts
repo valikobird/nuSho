@@ -1,5 +1,5 @@
 import type { AccountInfo } from './AccountRepository';
-import type { UserInfo } from './UserRepository';
+import type { UserInfoNoPassword } from './UserRepository';
 
 export interface AccountBalanceRepository {
   create(accountBalanceData: AccountBalanceCreateInput): Promise<void>;
@@ -10,7 +10,7 @@ export interface AccountBalanceInfo {
   account: AccountInfo | string;
   date: Date;
   amount: number;
-  createdBy: string | UserInfo;
+  createdBy: string | UserInfoNoPassword;
   createdAt: Date;
 }
 

@@ -1,8 +1,8 @@
-import type { UserDocument } from '../infrastructure/adapters/MongoUserRepository';
 import { BcryptPasswordService } from '../infrastructure/adapters/BcryptPasswordService';
 import UserModel from '../infrastructure/persistence/models/UserModel';
 import AccountModel from '../infrastructure/persistence/models/AccountModel';
 import { Account } from '../domain/entities/Account';
+import { User } from '../domain/entities/User';
 
 export const createTestUser = async (overrides: Partial<unknown> = {}) => {
   const passwordService = new BcryptPasswordService();
@@ -15,7 +15,9 @@ export const createTestUser = async (overrides: Partial<unknown> = {}) => {
     ...overrides,
   };
 
-  return (await UserModel.create(userData)) satisfies UserDocument;
+  const userDoc = await UserModel.create(userData);
+
+  return new User(userDoc._id.toString(), userDoc.name, userDoc.email, userDoc.createdAt, userDoc.updatedAt);
 };
 
 export const createTestAccount = async (userId: string, overrides: Partial<unknown> = {}) => {

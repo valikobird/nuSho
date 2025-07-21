@@ -59,16 +59,16 @@ describe('Account Controller', () => {
       expect(user).toBeDefined();
       expect(user.email).toBe('test@example.com');
       expect(user.name).toBe('Test User');
-      expect(user._id).toBeDefined();
+      expect(user.id).toBeDefined();
 
       expect(cookies).toBeDefined();
       expect(Array.isArray(cookies)).toBe(true);
       expect(cookies.length).toBeGreaterThan(0);
 
-      const account_1 = await createTestAccount(user._id.toString(), {
+      const account_1 = await createTestAccount(user.id, {
         name: 'Checking Account',
       });
-      const account_2 = await createTestAccount(user._id.toString(), { name: 'Savings Account' });
+      const account_2 = await createTestAccount(user.id, { name: 'Savings Account' });
 
       mockAccountUseCases.getEnabledAccountsByUser.mockResolvedValue([account_1, account_2]);
 

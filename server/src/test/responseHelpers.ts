@@ -6,11 +6,11 @@ export const expectUnauthorizedError = (response: request.Response) => {
   expect(response.body).toHaveProperty('msg');
 };
 
-export const expectValidationError = (response: request.Response, field?: string) => {
+export const expectValidationError = (response: request.Response, msgPart?: string) => {
   expect(response.status).toBe(400);
   expect(response.body).toHaveProperty('msg');
-  if (field) {
-    expect(response.body.msg.toLowerCase()).toContain(field.toLowerCase());
+  if (msgPart) {
+    expect(response.body.msg.toLowerCase()).toContain(msgPart.toLowerCase());
   }
 };
 
