@@ -4,7 +4,7 @@ import { UserUseCases } from './UserUseCases';
 import type { NotificationService } from '../../domain/ports/NotificationService';
 import type { User } from '../../domain/entities/User';
 
-describe('UserUseCases', () => {
+describe('User Use Cases', () => {
   let userUseCases: UserUseCases;
   let mockUserRepository: {
     [K in keyof UserRepository]: MockedFunction<UserRepository[K]>;
