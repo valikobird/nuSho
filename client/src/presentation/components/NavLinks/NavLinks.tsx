@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import links, { type NavLinkDetails } from '../utils/links';
+import links, { type NavLinkDetails } from '../../utils/links';
 
 interface NavLinksProps {
   isSidebarPopup?: boolean;

@@ -7,7 +7,7 @@ vi.mock('../Logo/Logo', () => ({
   default: () => <div data-testid="logo">Logo</div>,
 }));
 
-vi.mock('../NavLinks', () => ({
+vi.mock('../NavLinks/NavLinks', () => ({
   default: ({ toggleSidebar }: { toggleSidebar: () => void }) => (
     <div data-testid="nav-links" onClick={toggleSidebar}>
       NavLinks
