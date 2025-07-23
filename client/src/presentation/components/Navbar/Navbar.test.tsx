@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('../Logo', () => ({
+vi.mock('../Logo/Logo', () => ({
   default: () => <div data-testid="logo">Logo</div>,
 }));
 

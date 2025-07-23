@@ -3,7 +3,7 @@ import { render } from '../../../test/utils';
 import Sidebar from './Sidebar';
 import { screen } from '@testing-library/react';
 
-vi.mock('../Logo', () => ({
+vi.mock('../Logo/Logo', () => ({
   default: () => <div data-testid="logo">Logo</div>,
 }));
 
