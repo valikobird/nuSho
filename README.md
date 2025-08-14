@@ -1,3 +1,5 @@
+**!!! Project was moved to GitLab at [link](https://gitlab.com/valikobird/nuSho) !!!**
+
 # nuSho
 
 The aim is to make it possible to get finance overview with minimal efforts.
